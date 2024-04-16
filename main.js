@@ -40,7 +40,41 @@ window.addEventListener("load", draw);
 
 function draw() {
   // LOGIC
+  //move player
+  if (keyPressed["ArrowLeft"]) {
+    player1.x += -5;
+  } else if (keyPressed["ArrowRight"]) {
+    player1.x += 5;
+  } else if (keyPressed["ArrowUp"]) {
+    player1.y += -5;
+  } else if (keyPressed["ArrowDown"]) {
+    player1.y += 5;
+  }
+  player1.x = constrain(player1.x, 0, cnv.width - player1.width);
 
+  //move player 2
+  if (keyPressed["KeyA"]) {
+    player2.x += -5;
+  } else if (keyPressed["KeyD"]) {
+    player2.x += 5;
+  } else if (keyPressed["KeyW"]) {
+    player2.y += -5;
+  } else if (keyPressed["KeyS"]) {
+    player2.y += 5;
+  }
+
+  //check if Mouse is in Block
+  // if (ptInRect(mouseX, mouseY, block)) {
+  //   document.body.style.backgroundColor = "black";
+  // } else {
+  //   document.body.style.backgroundColor = "red";
+  // }
+  //check if Mouse is in Block
+  // if (ptInRect(mouseX, mouseY, block)) {
+  //   document.body.style.backgroundColor = "black";
+  // } else {
+  //   document.body.style.backgroundColor = "red";
+  // }
   // DRAWING
   drawFrame();
 
@@ -69,4 +103,9 @@ function drawFrame() {
   ctx.beginPath();
   ctx.arc(ball.x, ball.y, ball.r, 0, 2 * Math.PI);
   ctx.fill();
+
+  //Darw mouse cooridnates
+  ctx.font = "20px Arial";
+  ctx.fillStyle = "black";
+  ctx.fillText(`(${mouseX}, ${mouseY})`, mouseX, mouseY);
 }
