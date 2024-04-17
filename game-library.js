@@ -51,11 +51,10 @@ function dist(x1, y1, x2, y2) {}
  */
 function constrain(val, low, high) {
   if (val < low) {
-    val = low;
+    return low;
   } else if (val > high) {
-    val = high;
-  }
-  return val;
+    return high;
+  } else return val;
 }
 
 /*
@@ -66,7 +65,16 @@ function constrain(val, low, high) {
  * param: rect (rectangle object with x, y, w and h properties)
  * return: true or false
  */
-function ptInRect(x, y, rect) {}
+function ptInRect(x, y, rect) {
+  if (
+    x >= rect.x &&
+    x <= rect.x + rect.w &&
+    y >= rect.y &&
+    y <= rect.y + rect.h
+  ) {
+    return true;
+  }
+}
 
 /*
  * ptInCircle(x, y, circle)

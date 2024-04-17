@@ -50,7 +50,8 @@ function draw() {
   } else if (keyPressed["ArrowDown"]) {
     player1.y += 5;
   }
-  player1.x = constrain(player1.x, 0, cnv.width - player1.width);
+  player1.x = constrain(player1.x, 0, cnv.width - player1.w);
+  player1.y = constrain(player1.y, 0, cnv.height - player1.h);
 
   //move player 2
   if (keyPressed["KeyA"]) {
@@ -63,18 +64,16 @@ function draw() {
     player2.y += 5;
   }
 
-  //check if Mouse is in Block
-  // if (ptInRect(mouseX, mouseY, block)) {
-  //   document.body.style.backgroundColor = "black";
-  // } else {
-  //   document.body.style.backgroundColor = "red";
-  // }
-  //check if Mouse is in Block
-  // if (ptInRect(mouseX, mouseY, block)) {
-  //   document.body.style.backgroundColor = "black";
-  // } else {
-  //   document.body.style.backgroundColor = "red";
-  // }
+  player2.x = constrain(player2.x, player2.r, cnv.width - player2.r);
+  player2.y = constrain(player2.y, player2.r, cnv.height - player2.r);
+
+  // check if Mouse is in Block
+  if (ptInRect(mouseX, mouseY, block)) {
+    document.body.style.backgroundColor = "black";
+  } else {
+    document.body.style.backgroundColor = "white";
+  }
+
   // DRAWING
   drawFrame();
 
