@@ -71,7 +71,7 @@ function draw() {
   if (ptInRect(mouseX, mouseY, block)) {
     document.body.style.backgroundColor = "black";
   } else {
-    document.body.style.backgroundColor = "white";
+    document.body.style.backgroundColor = "whwdite";
   }
 
   // DRAWING
