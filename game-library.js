@@ -73,6 +73,8 @@ function ptInRect(x, y, rect) {
     y <= rect.y + rect.h
   ) {
     return true;
+  } else {
+    return false;
   }
 }
 
@@ -84,7 +86,13 @@ function ptInRect(x, y, rect) {
  * param: circle (circle object with x, y and r properties)
  * return: true or false
  */
-function ptInCircle(x, y, circle) {}
+function ptInCircle(x, y, circle) {
+  if (Math.sqrt((circle.x - x) ** 2 + (circle.y - y) ** 2) <= circle.r) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 /*
  * rectCollide(rect1, rect2)

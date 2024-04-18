@@ -71,9 +71,12 @@ function draw() {
   if (ptInRect(mouseX, mouseY, block)) {
     document.body.style.backgroundColor = "black";
   } else {
-    document.body.style.backgroundColor = "whwdite";
+    document.body.style.backgroundColor = "white";
   }
-
+  // check if mouse is in circle
+  if (ptInCircle(mouseX, mouseY, ball)) {
+    document.body.style.backgroundColor = "black";
+  }
   // DRAWING
   drawFrame();
 
