@@ -50,6 +50,7 @@ function draw() {
   } else if (keyPressed["ArrowDown"]) {
     player1.y += 5;
   }
+  // constrain box into canvas
   player1.x = constrain(player1.x, 0, cnv.width - player1.w);
   player1.y = constrain(player1.y, 0, cnv.height - player1.h);
 
@@ -63,7 +64,7 @@ function draw() {
   } else if (keyPressed["KeyS"]) {
     player2.y += 5;
   }
-
+  // constrain ball into canvas
   player2.x = constrain(player2.x, player2.r, cnv.width - player2.r);
   player2.y = constrain(player2.y, player2.r, cnv.height - player2.r);
 
@@ -77,7 +78,16 @@ function draw() {
   if (ptInCircle(mouseX, mouseY, ball)) {
     document.body.style.backgroundColor = "black";
   }
-  // DRAWING
+  //rectangle collition:
+  if (rectCollide(player1, block)) {
+    document.body.style.backgroundColor = "black";
+    player1.color = "red";
+  }
+  //circle collition
+  if (circleCollide(player2, ball)) {
+    document.body.style.backgroundColor = "black";
+  }
+  // DRAWING💫 💫 💫 💫 💫 💫 💫 💫 💫 💫 💫 💫 💫 💫 💫
   drawFrame();
 
   requestAnimationFrame(draw);

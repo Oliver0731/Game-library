@@ -39,7 +39,9 @@ function keyupLibHandler(e) {
  * param: y2 (y-coordinate of second point)
  * return: distance between (x1, y1) and (x2, y2)
  */
-function dist(x1, y1, x2, y2) {}
+function dist(x1, y1, x2, y2) {
+  return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2);
+}
 
 /*
  * constrain(val, low, high)
@@ -87,13 +89,13 @@ function ptInRect(x, y, rect) {
  * return: true or false
  */
 function ptInCircle(x, y, circle) {
-  if (Math.sqrt((circle.x - x) ** 2 + (circle.y - y) ** 2) <= circle.r) {
+  if (dist(x, y, circle.x, circle.y) <= circle.r) {
     return true;
   } else {
     return false;
   }
 }
-
+//Math.sqrt((circle.x - x) ** 2 + (circle.y - y) ** 2)
 /*
  * rectCollide(rect1, rect2)
  * Determine if two rectangle objects collide
@@ -101,7 +103,18 @@ function ptInCircle(x, y, circle) {
  * param: rect2 (rectangle object with x, y, w and h properties)
  * return true or false
  */
-function rectCollide(rect1, rect2) {}
+function rectCollide(rect1, rect2) {
+  if (
+    rect1.x + rect1.w >= rect2.x &&
+    rect1.x <= rect2.x + rect2.w &&
+    rect1.y + rect1.h >= rect2.y &&
+    rect1.y <= rect2.y + rect2.h
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 /*
  * circleCollide(circle1, circle2)
@@ -110,4 +123,13 @@ function rectCollide(rect1, rect2) {}
  * param: circle2 (circle object with x, y and r properties)
  * return true or false
  */
-function circleCollide(circle1, circle2) {}
+function circleCollide(circle1, circle2) {
+  if (
+    Math.sqrt((circle1.x - circle2.x) ** 2 + (circle1.y - circle2.y) ** 2) <=
+    circle1.r + circle2.r
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
