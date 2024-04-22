@@ -125,7 +125,7 @@ function rectCollide(rect1, rect2) {
  */
 function circleCollide(circle1, circle2) {
   if (
-    Math.sqrt((circle1.x - circle2.x) ** 2 + (circle1.y - circle2.y) ** 2) <=
+    dist(circle1.x, circle1.y, circle2.x, circle2.y) <=
     circle1.r + circle2.r
   ) {
     return true;
@@ -133,3 +133,5 @@ function circleCollide(circle1, circle2) {
     return false;
   }
 }
+
+// ( Math.sqrt((circle1.x - circle2.x) ** 2 + (circle1.y - circle2.y) ** 2)

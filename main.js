@@ -87,7 +87,7 @@ function draw() {
   if (circleCollide(player2, ball)) {
     document.body.style.backgroundColor = "black";
   }
-  // DRAWING💫 💫 💫 💫 💫 💫 💫 💫 💫 💫 💫 💫 💫 💫 💫
+  // DRAWING💫
   drawFrame();
 
   requestAnimationFrame(draw);
